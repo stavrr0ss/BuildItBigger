@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.support.test.rule.ActivityTestRule;
+import android.text.TextUtils;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 
@@ -23,7 +25,7 @@ public class JokeTaskTest {
         jokeAsyncTask.execute();
         try {
             String result=jokeAsyncTask.get(30, SECONDS);
-            assertNotNull(result);
+            assertFalse(TextUtils.isEmpty(result));
             assertTrue(result.length() > 0);
         } catch (InterruptedException e) {
             e.printStackTrace();

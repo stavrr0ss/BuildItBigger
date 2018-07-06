@@ -19,8 +19,8 @@ import ro.atoming.javajokeslibrary.JavaJoke;
 public class MyEndpoint {
 
     /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi() {
+    @ApiMethod(name = "beFunny")
+    public MyBean beFunny() {
         MyBean response = new MyBean();
         response.setData(JavaJoke.tellJoke());
         return response;

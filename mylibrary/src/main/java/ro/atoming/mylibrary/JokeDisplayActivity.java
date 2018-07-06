@@ -8,6 +8,7 @@ import android.widget.TextView;
 public class JokeDisplayActivity extends AppCompatActivity {
 
     private TextView mJokeText;
+    public static final String JOKE = "joke";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,9 @@ public class JokeDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_joke_display);
         mJokeText = findViewById(R.id.joke_textView);
         Intent jokeIntent = getIntent();
-        String passedJoke = jokeIntent.getStringExtra("joke");
-        mJokeText.setText(passedJoke);
+        if (jokeIntent.hasExtra(JOKE)) {
+            String passedJoke = jokeIntent.getStringExtra(JOKE);
+            mJokeText.setText(passedJoke);
+        }
     }
 }
